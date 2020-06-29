@@ -1,27 +1,3 @@
-# query fetcUser{
-
-# user(id:"23"){
-
-# id,
-
-# firstName,
-
-# age,
-
-# company {
-
-# id,
-
-# name,
-
-# description
-
-# }
-
-# }
-
-# }
-
 query fetchCompany{
 apple: company(id:"1"){
 ...companyDetails,
@@ -43,6 +19,23 @@ name,
 description
 }
 fragment userDetails on User{
+id,
+firstName,
+age
+}
+
+mutation {
+addUser(firstName: "Dips", age: 27) {
+id
+firstName
+age
+}
+deleteUser(id: "r70QRng") {
+id
+}
+}
+
+editUser(id: "23", firstName: "Dips.", age: 27) {
 id,
 firstName,
 age
